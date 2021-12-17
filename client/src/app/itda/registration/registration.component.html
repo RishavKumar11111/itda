@@ -1,0 +1,64 @@
+<div class="page-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Registration of farmer to get pump set</h5>
+                    <!-- <span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span> -->
+                    <div class="card-header-right">
+                        <i class="icofont icofont-rounded-down"></i>
+                        <i class="icofont icofont-refresh"></i>
+                        <i class="icofont icofont-close-circled"></i>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-horizontal-stepper [linear]="false" #stepper>
+                                <mat-step [stepControl]="farmerDetailsForm" [optional]="false">
+                                    <ng-template matStepLabel role="tab" aria-selected="true">Farmer Details</ng-template>
+                                    <app-farmer-detail-form [farmerDetailsForm]="farmerDetailsForm"></app-farmer-detail-form>
+                                    <div>
+                                        <!-- <button class="btn btn-primary float-right" matStepperNext (click)="proceedToChooseModel();" [disabled]="!isFarmerValid">Proceed</button> -->
+                                        <button class="btn btn-primary float-right" matStepperNext>Proceed</button>
+                                    </div>
+                                </mat-step>
+                                <mat-step [stepControl]="pumpSetModelForm">
+                                    <ng-template matStepLabel role="tab" aria-selected="true">Pump set Model</ng-template>
+                                    <app-model-selection [pumpSetModelForm]="pumpSetModelForm"></app-model-selection>
+                                    <div class="float-right">
+                                        <button class="btn btn-primary" matStepperPrevious><i class="icofont icofont-arrow-left"></i>Previous</button>
+                                        &nbsp;&nbsp;
+                                        <button class="btn btn-primary" matStepperNext>Next<i class="icofont icofont-arrow-right"></i></button>
+                                    </div>
+                                </mat-step>
+                                <mat-step [stepControl]="landRecordForm">
+                                    <ng-template matStepLabel role="tab" aria-selected="true">Land Record</ng-template>
+                                    <app-land-verify [landRecordForm]="landRecordForm"></app-land-verify>
+                                    <div class="float-right">
+                                        <button class="btn btn-primary" matStepperPrevious><i class="icofont icofont-arrow-left"></i>Previous</button>
+                                        &nbsp;&nbsp;
+                                        <button class="btn btn-primary" matStepperNext (click)="submit()">Next<i class="icofont icofont-arrow-right"></i></button>
+                                    </div>
+                                  </mat-step>
+                                <mat-step>
+                                  <ng-template matStepLabel role="tab" aria-selected="true">Payment</ng-template>
+                                  <p>You are now done.</p>
+                                  <div>
+                                    
+                                  </div>
+                                  
+                                    <div class="float-right">
+                                        <button class="btn btn-primary" matStepperPrevious><i class="icofont icofont-arrow-left"></i>Previous</button>
+                                        &nbsp;&nbsp;
+                                        <button class="btn btn-primary" matStepperNext>Submit<i class="icofont icofont-arrow-right"></i></button>
+                                    </div>
+                                </mat-step>
+                            </mat-horizontal-stepper>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+<form [formGroup]="farmerDetailsForm" class="stepsForm">
+    <div class="form-group row">
+        <div class="col-sm-4 col-lg-2">
+            <label class="block" for="farmerId">Farmer-ID *:</label>
+        </div>
+        <div class="col-sm-4 col-lg-6">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">{{ prefixOfFarmerID }} /</span>
+                <input formControlName="farmerId" (keyup.enter)="getFarmerDetails()" id="farmerId" name="farmerId" type="number" class="required form-control" aria-required="true" placeholder="Enter farmer-ID" required>
+            </div>                                                
+        </div>
+        <div class="col-sm-4 col-lg-4">
+            <button class="btn btn-primary" (click)="getFarmerDetails();"><i class="icofont icofont-search"></i>Search</button>
+        </div>
+    </div>
+    <div class="row" *ngIf="showFarmerDetails">
+        <div class="col-md-6">
+            <table class="table table-hover view-table">
+                <tbody>
+                    <tr>
+                        <td>Farmer name: </td>
+                        <td>
+                            <div *ngIf="!farmerName"><ngx-skeleton-loader></ngx-skeleton-loader></div>
+                            <div *ngIf="farmerName">{{ farmerName }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Caste: </td>
+                        <td>
+                            <div *ngIf="!farmerCaste"><ngx-skeleton-loader></ngx-skeleton-loader></div>
+                            <div *ngIf="farmerCaste">{{ farmerCaste }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Is taken pump set previously ? </td>
+                        <td>
+                            <div *ngIf="!farmerIsPreviouslyTaken"><ngx-skeleton-loader></ngx-skeleton-loader></div>
+                            <div *ngIf="farmerIsPreviouslyTaken">{{ farmerIsPreviouslyTaken }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>District: </td>
+                        <td>
+                            <div *ngIf="!farmerDistrictName"><ngx-skeleton-loader></ngx-skeleton-loader></div>
+                            <div *ngIf="farmerDistrictName">{{ farmerDistrictName }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gram Panchayat: </td>
+                        <td>
+                            <div *ngIf="!farmerGPName"><ngx-skeleton-loader></ngx-skeleton-loader></div>
+                            <div *ngIf="farmerGPName">{{ farmerGPName }}</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-hover view-table">
+                <tbody>
+                    <tr>
+                        <td>Father name: </td>
+                        <td>
+                            <div *ngIf="!farmerFatherName"><ngx-skeleton-loader></ngx-skeleton-loader></div>
+                            <div *ngIf="farmerFatherName">{{ farmerFatherName }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mobile number: </td>
+                        <td>
+                            <div *ngIf="!farmerMobileNo"><ngx-skeleton-loader></ngx-skeleton-loader></div>
+                            <div *ngIf="farmerMobileNo">{{ farmerMobileNo }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Aadhaar number: </td>
+                        <td>
+                            <div *ngIf="!farmerAadhaarNo"><ngx-skeleton-loader></ngx-skeleton-loader></div>
+                            <div *ngIf="farmerAadhaarNo">{{ farmerAadhaarNo }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Block: </td>
+                        <td>
+                            <div *ngIf="!farmerBlockName"><ngx-skeleton-loader></ngx-skeleton-loader></div>
+                            <div *ngIf="farmerBlockName">{{ farmerBlockName }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Village name: </td>
+                        <td>
+                            <div *ngIf="!farmerVillageName"><ngx-skeleton-loader></ngx-skeleton-loader></div>
+                            <div *ngIf="farmerVillageName">{{ farmerVillageName }}</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="width: 100%;text-align: center;">
+            <h5 style="color: red;font-weight: bold;">{{ invalidFarmerMessage }}</h5>
+        </div>
+    </div>
+  </form>

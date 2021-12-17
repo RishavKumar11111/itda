@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+.table-card {
+    padding: 0 !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.view-table td {
+    width: 50%;
+}
+.stepsForm {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background: #fff;
+    padding: 2.5%;
+    margin: 20px 0 20px 0px
+}

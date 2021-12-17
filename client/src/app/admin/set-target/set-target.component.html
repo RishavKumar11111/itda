@@ -1,0 +1,55 @@
+<div class="card">
+    <div class="card-block">
+        <h5>Total: 55</h5>
+    </div>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h5>Set Target</h5>
+        <span>Set I.T.D.A. wise Target for 22 Subdivision</span>
+        <div class="card-header-right">
+            <i class="icofont icofont-rounded-down"></i>
+            <i class="icofont icofont-refresh"></i>
+            <i class="icofont icofont-close-circled"></i>
+        </div>
+    </div>
+    <div class="card-block">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered" >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>District</th>
+                        <th>Sub-division</th>
+                        <th>P.M. Name</th>
+                        <th>Target</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of dataSource; let i = index;">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td class="tabledit-view-mode"><span class="tabledit-span">{{ x.DistrictName }}</span>
+                        </td>
+                        <td class="tabledit-view-mode"><span class="tabledit-span">{{ x.SubDivisionName }}</span>
+                        </td>
+                        <td class="tabledit-view-mode"><span class="tabledit-span">{{ x.Name || '----' }}</span>
+                        </td>
+                        <td class="tabledit-view-mode">
+                            <span *ngIf="!x.isEditable" class="tabledit-span">{{ x.Target || '----' }}</span>
+                            <input *ngIf="x.isEditable" [(ngModel)]="x.Target" id="Target{{i}}" class="tabledit-input form-control input-sm" type="text" placeholder="Enter Target">
+                        </td>
+                        <td style="white-space: nowrap; width: 1%;">
+                            <div class="tabledit-toolbar btn-toolbar" style="text-align: left;">
+                                <div *ngIf="!x.isEditable" class="btn-group btn-group-sm" style="float: none;">
+                                    <button (click)="editItdaDetails(x, i)" type="button" class="tabledit-edit-button btn btn-primary waves-effect waves-light" style="float: none;margin: 5px;"><span class="icofont icofont-ui-edit"></span></button>
+                                </div>
+                                <button *ngIf="x.isEditable" (click)="update(x)" type="button" class="tabledit-save-button btn btn-sm btn-success" style="float: none;">Update</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
